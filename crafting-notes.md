@@ -1,11 +1,4 @@
-# Crafting Notes — bow + bed session (2026-07-28)
-
-## State
-
-- Task DONE: crafted `minecraft:bow` (hotbar slot 1) and `minecraft:pink_bed` (hotbar slot 5).
-- Player at ~(1.8, 0, 6.3), overworld, flat grassland. A crafting table is placed a few blocks east of there.
-- Inventory leftovers: 4 pink wool (slot 2), 39 string (slot 3), 13 apples (slot 4), 1 cherry planks (slot 6), 1 stick (slot 9), 1 cherry pressure plate (slot 11, accidental craft — no way to uncraft).
-- Alias `split` is persisted in bind-alias-plus.cfg (with `var cnt 1` predefined).
+# Crafting Notes
 
 ## How to use `split` (the one stack-splitting tool)
 
@@ -60,14 +53,3 @@ Keep one partial stack in a player slot; stage each other stack through slot 14 
 - crafting table: planks in all four 2x2 slots.
 - bow: sticks at c03,c05,c09 + string at c04,c07,c10 (3x3).
 - bed: 3 wool at c05,c06,c07 + 3 planks at c08,c09,c10 (3x3).
-
-## cfg changelog (2026-07-28)
-
-- Evolution: `msplit`/`mdrop` → merged into one **`split`** alias. Final simplifications:
-  - self-resetting **`cnt`** var (predefined `var cnt 1`, body resets after use) — default peels 1;
-  - `cnt` is the **literal item count** (the +2 drop-calibration offset is baked into the alias via `wait\cnt wait\2`);
-  - **`predicted` and `dsc` removed** — read the pickup slot from getState, move the pile manually;
-  - **src must be an inputable c-slot** — no park var, trivial pickup behavior;
-  - **"slot 14 empty" requirement removed** — staging swaps its content out and back (validated).
-- cfg slimmed to general tool docs only; the experience/semantics writeup lives here.
-- Removed `split_item_stack_from_src_to_dsc` (adjacent-swap hazard + racy auto_drop at count 0).
