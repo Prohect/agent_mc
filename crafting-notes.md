@@ -4,7 +4,7 @@
 
 See bind-alias-plus.cfg for call syntax, requirements, and post-run flow.
 
-- **Slot 14 needs NOTHING**: staging is a pure whole-stack swap, so slot 14's content is swapped into src's grid slot and swapped back. That's also WHY src must be inputable: it hosts slot 14's stack during the swap.
+- **Slot 14 requires NOTHING**: staging is a pure whole-stack swap, so slot 14's content is swapped into src's grid slot and swapped back. That's also WHY src must be inputable: it hosts slot 14's stack during the swap.
 
 ### Average-stacks pattern (craft N items without refilling)
 
