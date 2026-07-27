@@ -34,15 +34,14 @@ alias -auto_drop +silent alias\auto_drop_iter;NOP_792 -silent
 # AFTER: getState -> peeled pile is in the index-smallest EMPTY player slot -> move it manually.
 # timing: ~(55 + cnt) ticks
 # requirements:
-#   - src = INPUTABLE container slot (any grid slot, NOT result c01). Stack in player inv?
-#     swap it into a free grid slot first. Slot 14 needs NOTHING: staging swaps its content
-#     into src and back out (pure whole-stack swap), so it may hold anything.
+#   - src = INPUTABLE container_grid slot (NOT result-slot c01 for recipe(crafting)_grid). Stack in player inv?
+#     swap it into a free grid slot first.
 #   - flat ground, not on edge; a container screen open; +freeCursor;
 #   - NO partial same-type stacks in player inv during pickup (move them to c-slots first).
 # NEVER peel cnt >= stack count (drops all => no split; a 2-stack only with default cnt=1).
 # deeper background: crafting-notes.md (linked from AGENTS.md)
 var cnt 0
-alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +auto_drop wait\cnt -auto_drop var\cnt\0 wait\3 swapSlot\14\src wait\45 setPitch\lastPitch
+alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +auto_drop wait\cnt -auto_drop var\cnt\0 wait\2 setPitch\lastPitch swapSlot\14\src
 
 ## -- tick rates --
 # example: sendCommand\"tick rate 20"
