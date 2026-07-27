@@ -34,15 +34,10 @@ alias -auto_drop +silent alias\auto_drop_iter;NOP_792 -silent
 # warning: unexpected behavior when tick rate higher than normal(20)
 # requirements: 1.not standing on edge (making pickup predictable when pitch is 90);
 #               2.predicted_pickup: must be the index-smallest empty inventory slot(1-36, 41), NO not-full inventory slots that have same item type as src (mergeable) EXISTS when pickup happens(>= 39 ticks after -auto_drop && near dropped item);
-#               3.park: under a container screen which has inputable c<N> slot(s);
+#               3.park: under a screen which has inputable c<N> slot(s);
 # CALL: `var\src\<[c]N> var\park\c<N> var\count_subtracted_1\<N> var\predicted_pickup\<N> var\dsc\<[c]N> split_item_stack_from_src_to_dsc`
 alias split_item_stack_from_src_to_dsc var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\1 +auto_drop wait\count_subtracted_1 -auto_drop wait\1 swapSlot\14\park wait\38 swapSlot\park\src swapSlot\predicted_pickup\dsc setPitch\lastPitch
 
 ## -- tick rates --
 # requirements: server privilege && tick command explicitly allowed by host
-alias t1 sendCommand\"tick rate 1"
-alias t5 sendCommand\"tick rate 5"
-alias t20 sendCommand\"tick rate 20"
-alias t60 sendCommand\"tick rate 60"
-alias t100 sendCommand\"tick rate 100"
-alias t2000 sendCommand\"tick rate 2000"
+alias tr_20 sendCommand\"tick rate 20"
