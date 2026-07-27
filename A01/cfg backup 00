@@ -29,15 +29,21 @@ alias -auto_attack_sword +silent alias\auto_attack_sword_iter;NOP_792 -silent
 alias +auto_drop +silent alias\auto_drop_iter;drop_single;wait\1;builtinRunAlias\auto_drop_iter -silent builtinRunAlias\auto_drop_iter
 alias -auto_drop +silent alias\auto_drop_iter;NOP_792 -silent
 
-## -- stack split: drop (count_subtracted_1 + 1) from src, move remained-src park, pickup predicted_pickup, move pk dsc, move park src --
-# timing: count_subtracted_1 + 40
-# warning: unexpected behavior when tick rate higher than normal(20)
-# requirements: 1.not standing on edge (making pickup predictable when pitch is 90);
-#               2.predicted_pickup: must be the index-smallest empty inventory slot(1-36, 41), NO not-full inventory slots that have same item type as src (mergeable) EXISTS when pickup happens(>= 39 ticks after -auto_drop && near dropped item);
-#               3.park: under a screen which has inputable c<N> slot(s);
-# CALL: `var\src\<[c]N> var\park\c<N> var\count_subtracted_1\<N> var\predicted_pickup\<N> var\dsc\<[c]N> split_item_stack_from_src_to_dsc`
-alias split_item_stack_from_src_to_dsc var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\1 +auto_drop wait\count_subtracted_1 -auto_drop wait\1 swapSlot\14\park wait\38 swapSlot\park\src swapSlot\predicted_pickup\dsc setPitch\lastPitch
+## -- split: peel cnt items from a stack --
+# CALL: `var\src\c<N> [var\cnt\<D>] split`  (split 1 when cnt not set, otherwise cnt+1 items)
+# AFTER: getState -> peeled pile is in the index-smallest EMPTY player slot -> move it manually.
+# timing: ~(55 + cnt) ticks
+# requirements:
+#   - src = INPUTABLE container slot (any grid slot, NOT result c01). Stack in player inv?
+#     swap it into a free grid slot first. Slot 14 needs NOTHING: staging swaps its content
+#     into src and back out (pure whole-stack swap), so it may hold anything.
+#   - flat ground, not on edge; a container screen open; +freeCursor;
+#   - NO partial same-type stacks in player inv during pickup (move them to c-slots first).
+# NEVER peel cnt >= stack count (drops all => no split; a 2-stack only with default cnt=1).
+# deeper background: crafting-notes.md (linked from AGENTS.md)
+var cnt 0
+alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +auto_drop wait\cnt -auto_drop var\cnt\0 wait\3 swapSlot\14\src wait\45 setPitch\lastPitch
 
 ## -- tick rates --
+# example: sendCommand\"tick rate 20"
 # requirements: server privilege && tick command explicitly allowed by host
-alias tr_20 sendCommand\"tick rate 20"
