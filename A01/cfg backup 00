@@ -1,5 +1,6 @@
 runAlias unloadCFGAll
 runAlias +freeCursor
+runAlias wait\5 esc
 
 ## IMPORTANT: do not define NOP_792, a placeholder for NOP to escape loops
 
@@ -32,7 +33,7 @@ alias -auto_drop +silent alias\auto_drop_iter;NOP_792 -silent
 ## -- split: peel cnt items from a stack --
 # CALL: `var\src\c<N> [var\cnt\<D>] split`  (split 1 when cnt not set, otherwise cnt+1 items)
 # AFTER: getState -> peeled pile is in the index-smallest EMPTY player slot -> move it manually.
-# timing: ~(55 + cnt) ticks
+# timing: (42 + cnt) ticks
 # requirements:
 #   - src = INPUTABLE container_grid slot (NOT result-slot c01 for recipe(crafting)_grid). Stack in player inv?
 #     swap it into a free grid slot first.
@@ -41,7 +42,7 @@ alias -auto_drop +silent alias\auto_drop_iter;NOP_792 -silent
 # NEVER peel cnt >= stack count (drops all => no split; a 2-stack only with default cnt=1).
 # deeper background: crafting-notes.md (linked from AGENTS.md)
 var cnt 0
-alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +auto_drop wait\cnt -auto_drop var\cnt\0 wait\2 setPitch\lastPitch swapSlot\14\src
+alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +auto_drop wait\cnt -auto_drop var\cnt\0 wait\2 setPitch\lastPitch swapSlot\14\src wait\38
 
 ## -- tick rates --
 # example: sendCommand\"tick rate 20"
