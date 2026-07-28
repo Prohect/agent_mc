@@ -2,62 +2,91 @@
 
 **Constraint**: no commands/cheats. Difficulty: **peaceful** (user will raise it later — required for blaze rods, ender pearls, string, arrows).
 
-## Current state (STOPPED at tick ~64k, day 2 morning)
+## Current state (PAUSED at tick ~78k, day ~4)
 
-- **Pos**: (-96.4, 59, 60.9), health 20, hunger full. Player name "Prohect".
+- **Pos**: (-95.3, -4, 61.5), yaw -90, pitch 55, health 20, hunger 🟢. Paused mid-mine.
 - **Advancements**: Stone Age, Getting an Upgrade.
-- **Base** (trench at ~(-97.6, 59, 62.7)): crafting table + furnace placed on wall faces, 2 torches placed.
-- **Hotbar**: 1 wooden axe (47/59), 2 wooden pick (30/59), 3 bread, 4 torch x2, 5 birch plank x1, 6 stone pick (~100/131), 7 dirt x3, 8 stone axe, 9 stone sword.
-- **Inventory**: coal x2, torches x6 more, cobble x3, granite x5, sticks ~20, leaf litter x23, food: bread x2, apples x2, raw salmon x2. Dirt nearly spent.
+- **Location**: underground in the messy pocket zone west of the main shaft, mining east toward (-66, 2) to tower up the open cave shaft I previously fell down from the y16 tunnel.
 
-### Key locations
+### Hotbar
 
-- **Spawn**: (6.6, 64, 7.6) — ruined portal + EMPTY chest; tall stone-brick pillar (worldgen?). Lake east, forest west.
-- **Forest**: west of spawn around (-100, 79, 30). Birch + dark oak + oak. Leaf litter patches everywhere.
-- **Cave**: entrance ~(-98, 57, 55); interior pool at (-98, 56, 53-58); coal + granite + andesite/diorite inside. Water pool is a trap — avoid swimming.
-- **Coal cliff** (north face): (-96, 59, ~57) — 5-6 coal ore at eye level, easy.
-- **Vertical shaft**: (-99.67, 62.7) from y=59 down to y=44 (dirt pillar inside to climb out; granite pocket at y 51-59, plain stone below).
-- **Animals seen**: cow near cave exit ~(-95, 59, 56); chickens at forest edge ~(-104, 79, 27).
+1. cobbled_deepslate x12, 2. wooden pick (low), 3. bread x1, 4. **stone pick (43/131, selected)**, 5. torch x3, 6. stone pick (5/131), 7. granite x29, 8. stone axe, 9. stone sword (129/131).
+
+### Inventory highlights
+
+- **NO IRON** (~250 blocks mined at y16, y-1, y-39 — zero iron ore; see IRON PROBLEM below).
+- Picks left: slot 31 stone pick (54/131), slot 4 (43), slot 6 (5), wooden (~14). That's it.
+- cobble x59, cobbled_deepslate x64(+25→12 placed), diorite x41, granite x29, tuff x12.
+- **cinnabar x42** (red cave rock, modded), **sulfur x2**, **sulfur_spike x1** (modded).
+- raw_copper x5, coal 0, torches 3+2+4 elsewhere, flint x3, gravel x12.
+- Food: bread x2, cooked_salmon x2, apple x2. sticks ~5, planks x2 (oak+birch).
+- leaf_litter x23, andesite x10.
+
+## ⚠️ THE IRON PROBLEM (ask user)
+
+~250 blocks of 1x2 branch tunnel at y=16, y=-1, AND y=-39 produced **zero iron ore** (only one copper ore at y16, plus modded cinnabar/sulfur). Advancement tab is vanilla. Either very unlucky (~5%) or the modpack changed/relocated iron gen. **Plan**: surface, then **ASK USER how iron generates in this pack**. Also test: smelt 1 cinnabar + 1 sulfur in furnace to learn what they are.
+
+## Underground layout (mapped)
+
+- **Main shaft** (-98.7, 62.7): open y16→y60 surface (pillar re-mined away). Bottom of shaft = y16.
+- **y16 east tunnel**: x -98.6 → -78.3, z≈62.7, then a mined slope descends (x -78→-66) down to y≈2 — **open cave shaft at (-66.4, 2) with my torch**; tower up there to return.
+- **y16 north tunnel**: z 62.3 → 40.3 at x=-98.7.
+- **y-1 tunnel**: x -85.7 → -43.3, z≈62.3-62.7.
+- **y-39 shaft** (-43.3, 62.3): now pillar-filled (towered out).
+- **y-39 east tunnel**: x -43.3 → -11.3, z≈62.3.
+- **Second shaft** (-97.3, 62.7): dug y59→42 for cobble, then pillar-filled (towered out).
+- Messy irregular pockets x -85..-105, y -8..2 (from slope-mining) — avoid, disorienting.
+- Modded cave biome: red **cinnabar** rock + yellow sulfur/fungus blocks around y 0-20 near base; seems to replace vanilla ore gen locally.
+
+## Return-to-surface route (current objective)
+
+1. From (-95.3, -4, 61.5) continue east to (-66.4, 2) — mine through walls as needed.
+2. Tower up the open cave shaft at (-66.4, 2) → y16 tunnel.
+3. Walk west to main shaft (-98.7, 16) → walk up... shaft is open 16→60: tower up it (needs ~44 blocks; have cobble 59).
+4. Surface: smelt-test cinnabar/sulfur; ASK USER about iron.
 
 ## Plan (next steps in order)
 
-1. [ ] Hunt food: cow/pigs/sheep near base; chickens in forest. Cook in furnace (coal fuel).
-2. [ ] Bed: 3 wool from sheep (skip nights; set spawn).
-3. [ ] Iron: branch-mine at y~50 from the shaft bottom, or explore the cave. Need ~40 iron (full armor 24 + pick 3 + bucket 3 + shield 1 + sword 2 + flint&steel 1).
-4. [ ] Bucket + shield + iron armor; wheat/carrot farm optional.
-5. [ ] Diamonds at y ~-59 (need 3+ for pick; more for armor/enchant table).
-6. [ ] Obsidian (10) → nether portal; light with flint&steel.
-7. [ ] **ASK USER to raise difficulty** (blazes/endermen don't spawn on peaceful).
-8. [ ] Nether fortress → 6-8 blaze rods; endermen at night → 12+ pearls. Bow + arrows.
-9. [ ] Eyes of ender → stronghold → end portal → dragon fight (bow for crystals, water bucket, beds).
+1. [x] Cook salmon x2 (done, in inv)
+2. [ ] Return to surface (route above)
+3. [ ] Smelt-test cinnabar + sulfur
+4. [ ] **ASK USER: where/how does iron generate in this modpack?**
+5. [ ] Iron (~40) → full iron gear → diamonds y-59 → obsidian → nether
+6. [ ] **ASK USER to raise difficulty** (blazes/endermen need non-peaceful)
+7. [ ] Nether fortress → blaze rods; endermen → pearls; bow + arrows
+8. [ ] Eyes of ender → stronghold → dragon
 
 ## Hard-won lessons (THIS RUN, verified)
 
 ### Block placement (+use)
 
-- **Placement works at pitch 0 on eye-level wall faces** (single `tap_use`); downward-pitch placements at the ground FAIL reliably (freeCursor mode). If placement fails, aim at a wall face at eye level and retry; never trust one press — verify held item got consumed.
-- Right-clicking an existing table with +use OPENS it instead of placing (sneak not available) — aim beside it.
+- Placement works at pitch 0 on eye-level wall faces (single `tap_use`); downward-pitch ground placements FAIL reliably (freeCursor). Verify held item got consumed.
+- Right-clicking an existing table/furnace with +use OPENS it — aim beside it.
 
 ### Mining & drops
 
-- **Straight-down digging >> face-mining**: continuous +attack auto-continues as you fall (7-8 blocks per 140-tick hold). Face-mining stalls after 1-2 blocks (ray finds air on retarget). Straight-down can break into caves — small falls OK (peaceful regen).
-- Drops scatter 1-2 blocks; walk a small square to collect. Items float in water (collect by wading).
-- **Underwater: don't.** Mining 5x slower, +jump ascent fails under ledges. If submerged: move horizontally to the known air pocket, don't just +jump.
-- Aim-verify via tooltip (mod shows block name + mineable check) before long holds; swinging at out-of-reach blocks costs nothing but does nothing (check durability to confirm work done).
+- **Straight-down digging >> face-mining**: continuous +attack auto-continues as you fall. Face-mining stalls; raycast needs tooltip verification.
+- **Branch-mine pattern that works**: yaw fixed, `+attack +forward` held, alternate `setPitch\0 wait\30 setPitch\55 wait\30` — advances ~1 block per full cycle, BUT pitch-55 can mine down-slopes into caves (descended y16→y2 twice unintentionally).
+- Deepslate mining with stone pick: ~21-30 ticks/block (slow).
+- **Mining straight up (pitch -90) does NOT work** (no tooltip/no raycast hit with freeCursor) — use `+auto_tower` in open columns instead.
+- **auto_tower drifts**: over long rises it can slide off-column (especially near walls); it also FILLS the shaft behind you — re-descending a shaft means re-mining your own pillar (nice for cobble restock).
+- **auto_tower stops at ceilings** — check y after; if stuck, you're under rock.
+- Drops scatter 1-2 blocks; walk a square to collect. Underwater: don't.
+- Don't mine with sword (2 dura/block). Wooden pick CAN mine stone/coal/cobble (not iron).
 
-### Crafting / swapSlot / split (extends crafting-notes.md)
+### Crafting / swapSlot / split
 
-- **Peeled item from `split` goes to index-smallest EMPTY player slot at pickup time** — NOT necessarily slot 14. If you emptied slot 4 mid-chain, peels land in 4. Track the current smallest-empty; don't hardcode.
-- Slot 14 keeps a "guest" stack through split staging swaps (swap semantics) — but c-grid staging swaps it INTO the grid; it round-trips safely.
-- **Shaped recipes fail if ANY extra items sit in the grid** (torch craft failed with leftover sticks in c08). Clear all non-recipe slots before taking the result.
-- Crafting from result slot c01: target player slot MUST be empty (silent fail otherwise). Consecutive result-crafts need different empty targets.
-- 2x2 grid with planks only in c02+c03 = pressure-plate recipe; fill all 4 slots for the table. One cobble stack + splits: 7 peels for a furnace ring.
-- Chain-of-swaps verify: cheap = check `logDiff` for var lines; expensive ops = getState between.
+- **3 cobble in a row = SLAB recipe** — add the sticks BEFORE taking result; result slot shows slabs otherwise.
+- Stone pickaxe x3 from one 9-cobble stack: swapSlot 9-stack→c02, `var\src\c02 var\cnt\2 split` ×2 (peel 3 → smallest-empty player slot), move peels to c03/c04; sticks stack → c06, refill c09 with single sticks between crafts. Result→EMPTY player slots only.
+- Peeled items go to index-smallest EMPTY player slot — re-check `empty_inv` each time, don't hardcode.
+- swapSlot is pure whole-stack swap, never merges; wait\1-2 between swaps.
 
-### Tool-call hygiene (user tip)
+### Tool-call hygiene
 
-- Trailing `wait\N` is a NOP. `runAlias` returns immediately; don't burn calls on `runAlias wait\N` — use `getState` to observe between chains.
-- getState/runAlias return PRE-execution snapshots; a chain started earlier is still running — check `tick` + logDiff to tell mid-chain states.
+- **Never lead a chain with `esc` after a screen-open tool call — the whole chain silently no-ops.** Use standalone `closeScreen`, then a separate call for the action chain. (Bit me 3 times.)
+- Opening the inventory seems to stall mid-chain movement/mining — treat screen transitions as chain boundaries.
+- Trailing `wait\N` is a NOP; runAlias returns immediately; use delay param + getState to observe.
+- getState/runAlias return PRE-execution snapshots.
 
 ## reference
 
