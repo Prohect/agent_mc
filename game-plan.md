@@ -1,93 +1,66 @@
 # Game Plan — Beat the Game (No Cheats)
 
-**Constraint**: no commands/cheats. Difficulty: **peaceful** (user will raise it later — required for blaze rods, ender pearls, string, arrows).
+**Constraint**: no commands/cheats. Difficulty: **peaceful** (user will raise it later — required for blaze rods, ender pearls, string, arrows). **Version: Vanilla 26.2** (confirmed by user).
 
-## Current state (PAUSED at tick ~78k, day ~4)
+## Current state (PAUSED by user, tick ~32k into session 3)
 
-- **Pos**: (-95.3, -4, 61.5), yaw -90, pitch 55, health 20, hunger 🟢. Paused mid-mine.
+- **Pos**: (-97.3, 60, 62.2) — SURFACE, at base trench next to crafting table + furnace. Night, rain. Health 20.
 - **Advancements**: Stone Age, Getting an Upgrade.
-- **Location**: underground in the messy pocket zone west of the main shaft, mining east toward (-66, 2) to tower up the open cave shaft I previously fell down from the y16 tunnel.
 
 ### Hotbar
 
-1. cobbled_deepslate x12, 2. wooden pick (low), 3. bread x1, 4. **stone pick (43/131, selected)**, 5. torch x3, 6. stone pick (5/131), 7. granite x29, 8. stone axe, 9. stone sword (129/131).
+1. cobble x12, 2. wooden pick (7/59), 3. bread x1, 4. empty, 5. torch x2, 6. stone pick (5/131), 7. granite x33, 8. stone axe, 9. stone sword (129/131).
 
 ### Inventory highlights
 
-- **NO IRON** (~250 blocks mined at y16, y-1, y-39 — zero iron ore; see IRON PROBLEM below).
-- Picks left: slot 31 stone pick (54/131), slot 4 (43), slot 6 (5), wooden (~14). That's it.
-- cobble x59, cobbled_deepslate x64(+25→12 placed), diorite x41, granite x29, tuff x12.
-- **cinnabar x42** (red cave rock, modded), **sulfur x2**, **sulfur_spike x1** (modded).
-- raw_copper x5, coal 0, torches 3+2+4 elsewhere, flint x3, gravel x12.
-- Food: bread x2, cooked_salmon x2, apple x2. sticks ~5, planks x2 (oak+birch).
-- leaf_litter x23, andesite x10.
+- **No iron yet.** Picks are nearly exhausted: wooden (7), stone (5). Sticks ~4. No logs.
+- cobbled_deepslate ~100, cobble 12, diorite 41, granite 33, tuff 12, gravel 27, flint 3.
+- cinnabar x49, sulfur x11, sulfur_spike x1 (all decorative, see RESEARCH).
+- raw_copper x4, copper_ingot x1, torches ~8.
+- Food: bread x2, cooked_salmon x2, apple x2.
 
-## ⚠️ THE IRON PROBLEM (ask user)
+## 🔬 RESEARCH RESULTS (vanilla 26.2, minecraft.wiki)
 
-~250 blocks of 1x2 branch tunnel at y=16, y=-1, AND y=-39 produced **zero iron ore** (only one copper ore at y16, plus modded cinnabar/sulfur). Advancement tab is vanilla. Either very unlucky (~5%) or the modpack changed/relocated iron gen. **Plan**: surface, then **ASK USER how iron generates in this pack**. Also test: smelt 1 cinnabar + 1 sulfur in furnace to learn what they are.
+- **Zero iron explained**: base sits above a **Sulfur Caves** biome (new in 26.2). There, sulfur/cinnabar replace most stone/deepslate, and **"ores rarely generate here"** — iron ore only replaces stone/andesite/diorite/granite/tuff/deepslate. ~250 blocks mined in-biome → 0 iron.
+- **Sulfur caves are "much smaller and more fragmented"** than normal cave biomes; small spots under hilltops; **sulfur springs on the surface indicate caves below**.
+- **Iron gen (unchanged)**: peak y16 (y-24..56), uniform y-64..72, huge mountain peak y232 (y80..384). Also: iron ore loot in new **abandoned camps** structures.
+- **Cinnabar / sulfur**: decorative only, NOT smeltable (verified in-game).
+- **Sulfur cubes** (new mob, sulfur caves only): absorb DROPPED blocks incl. iron ore (→ "medicine ball" archetype); drop absorbed block on death or via shears. Irrelevant on peaceful.
+- Furnace vanilla: wooden tool = 200t = exactly 1 smelt; stick = 100t = half smelt (wastes fuel if alone).
 
 ## Underground layout (mapped)
 
-- **Main shaft** (-98.7, 62.7): open y16→y60 surface (pillar re-mined away). Bottom of shaft = y16.
-- **y16 east tunnel**: x -98.6 → -78.3, z≈62.7, then a mined slope descends (x -78→-66) down to y≈2 — **open cave shaft at (-66.4, 2) with my torch**; tower up there to return.
+- **Main shaft** (-98.7, 62.7): NOW PILLAR-FILLED y16→61 (towered out). Open below y16.
+- **y16 east tunnel**: x -98.6 → -74.7, z≈62.7; connects via new tower column at (-74.7, 62.65) down through cave to y-1 tunnel.
 - **y16 north tunnel**: z 62.3 → 40.3 at x=-98.7.
-- **y-1 tunnel**: x -85.7 → -43.3, z≈62.3-62.7.
-- **y-39 shaft** (-43.3, 62.3): now pillar-filled (towered out).
-- **y-39 east tunnel**: x -43.3 → -11.3, z≈62.3.
-- **Second shaft** (-97.3, 62.7): dug y59→42 for cobble, then pillar-filled (towered out).
-- Messy irregular pockets x -85..-105, y -8..2 (from slope-mining) — avoid, disorienting.
-- Modded cave biome: red **cinnabar** rock + yellow sulfur/fungus blocks around y 0-20 near base; seems to replace vanilla ore gen locally.
-
-## Return-to-surface route (current objective)
-
-1. From (-95.3, -4, 61.5) continue east to (-66.4, 2) — mine through walls as needed.
-2. Tower up the open cave shaft at (-66.4, 2) → y16 tunnel.
-3. Walk west to main shaft (-98.7, 16) → walk up... shaft is open 16→60: tower up it (needs ~44 blocks; have cobble 59).
-4. Surface: smelt-test cinnabar/sulfur; ASK USER about iron.
+- **y-1 tunnel**: x -85.7 → -43.3, z≈62.3-62.7. Roof holes at x≈-68.5 (pillar-filled) and x≈-73.8 (open pillar to y16).
+- **y-39 shaft** (-43.3, 62.3): pillar-filled. **y-39 east tunnel**: x -43.3 → -11.3.
+- **Second shaft** (-97.3, 62.7): pillar-filled.
+- Messy pockets x -85..-105, y -8..2 — disorienting; also a tunnel at y≈-4/-6 z≈61.3 x -66..-95.
 
 ## Plan (next steps in order)
 
-1. [x] Cook salmon x2 (done, in inv)
-2. [ ] Return to surface (route above)
-3. [ ] Smelt-test cinnabar + sulfur
-4. [ ] **ASK USER: where/how does iron generate in this modpack?**
-5. [ ] Iron (~40) → full iron gear → diamonds y-59 → obsidian → nether
-6. [ ] **ASK USER to raise difficulty** (blazes/endermen need non-peaceful)
-7. [ ] Nether fortress → blaze rods; endermen → pearls; bow + arrows
-8. [ ] Eyes of ender → stronghold → dragon
+1. [ ] **Wood run**: forest at (-100, 79, 30) — logs for sticks/torches/chests; stone axe (129/131) works.
+2. [ ] Craft stone picks ×4+ at base.
+3. [ ] **Escape the sulfur-caves biome**: new shaft+branch at y16 ≥ 60-100 blocks away from base (try far west past forest, or far north; avoid surface sulfur springs). Mine until OUT of cinnabar/sulfur rock (plain stone) → iron.
+4. [ ] Iron ~40 → iron gear (armor 24, pick 3, bucket 3, shield 1, sword, flint&steel 1 — have flint x3).
+5. [ ] Diamonds y-59 (3+ for pick). Obsidian 10 → portal, light it.
+6. [ ] **ASK USER to raise difficulty** (blazes/endermen need non-peaceful).
+7. [ ] Nether fortress → blaze rods; endermen → pearls; bow + arrows.
+8. [ ] Eyes of ender → stronghold → dragon.
 
-## Hard-won lessons (THIS RUN, verified)
+## Run-specific lessons (general knowledge lives in the note files)
 
-### Block placement (+use)
-
-- Placement works at pitch 0 on eye-level wall faces (single `tap_use`); downward-pitch ground placements FAIL reliably (freeCursor). Verify held item got consumed.
-- Right-clicking an existing table/furnace with +use OPENS it — aim beside it.
-
-### Mining & drops
-
-- **Straight-down digging >> face-mining**: continuous +attack auto-continues as you fall. Face-mining stalls; raycast needs tooltip verification.
-- **Branch-mine pattern that works**: yaw fixed, `+attack +forward` held, alternate `setPitch\0 wait\30 setPitch\55 wait\30` — advances ~1 block per full cycle, BUT pitch-55 can mine down-slopes into caves (descended y16→y2 twice unintentionally).
-- Deepslate mining with stone pick: ~21-30 ticks/block (slow).
-- **Mining straight up (pitch -90) does NOT work** (no tooltip/no raycast hit with freeCursor) — use `+auto_tower` in open columns instead.
-- **auto_tower drifts**: over long rises it can slide off-column (especially near walls); it also FILLS the shaft behind you — re-descending a shaft means re-mining your own pillar (nice for cobble restock).
-- **auto_tower stops at ceilings** — check y after; if stuck, you're under rock.
-- Drops scatter 1-2 blocks; walk a square to collect. Underwater: don't.
-- Don't mine with sword (2 dura/block). Wooden pick CAN mine stone/coal/cobble (not iron).
-
-### Crafting / swapSlot / split
-
-- **3 cobble in a row = SLAB recipe** — add the sticks BEFORE taking result; result slot shows slabs otherwise.
-- Stone pickaxe x3 from one 9-cobble stack: swapSlot 9-stack→c02, `var\src\c02 var\cnt\2 split` ×2 (peel 3 → smallest-empty player slot), move peels to c03/c04; sticks stack → c06, refill c09 with single sticks between crafts. Result→EMPTY player slots only.
-- Peeled items go to index-smallest EMPTY player slot — re-check `empty_inv` each time, don't hardcode.
-- swapSlot is pure whole-stack swap, never merges; wait\1-2 between swaps.
-
-### Tool-call hygiene
-
-- **Never lead a chain with `esc` after a screen-open tool call — the whole chain silently no-ops.** Use standalone `closeScreen`, then a separate call for the action chain. (Bit me 3 times.)
-- Opening the inventory seems to stall mid-chain movement/mining — treat screen transitions as chain boundaries.
-- Trailing `wait\N` is a NOP; runAlias returns immediately; use delay param + getState to observe.
-- getState/runAlias return PRE-execution snapshots.
+- **Cave water near base is extensive** — pool extends east under the dirt mound (-91.7, 60, 63.7). Fell through at (-85.3, 60, 65.7) → y54 water, nearly drowned. Escape: air pocket (-89.7, 55, 55.6); terraces NW → grass gap yaw 115. **Do not dig hillside walls in cave-adjacent dirt.**
+- **Climbing 2-high ledges**: mine bottom (pitch 0), mine top (pitch -60/-65), then forward+jump. Jump alone clears only 1.
+- **Peeled items from `split` go to index-smallest EMPTY player slot** — re-check `empty_inv` each time, don't hardcode.
+- **3 cobble in a row = SLAB recipe** — add sticks BEFORE taking result (else you craft slabs).
+- **swapSlot from result slot c01 requires an EMPTY target player slot** (silent fail otherwise); refill c09 with single sticks between pick crafts.
+- For mining/bridging timing & geometry, signatures, and tool-call rules see the reference files below.
 
 ## reference
 
-- [crafting-notes.md](./crafting-notes.md) — swapSlot semantics, split alias usage, c-slot layouts, recipes (linked from AGENTS.md)
+- [mining-notes.md](./mining-notes.md) — block×tool timing, benchmarks, ore detection
+- [bridging-notes.md](./bridging-notes.md) — placement geometry, bridge & stair-bridge recipes
+- [diagnostics.md](./diagnostics.md) — state signatures, mismatch→cause, tool-call hygiene
+- [crafting-notes.md](./crafting-notes.md) — swapSlot semantics, split alias, c-slot layouts, recipes
