@@ -1,6 +1,6 @@
 runAlias unloadCFGAll
 runAlias +freeCursor
-runAlias builtinRunAlias\wait\5;esc
+runAlias wait\10 esc
 
 ## IMPORTANT: do not define NOP_792, a placeholder for NOP to escape loops
 
