@@ -1,0 +1,14 @@
+
+bind w +forward
+bind a +left
+bind s +back
+bind d +right
+bind e +openInventory
+bind q +drop
+bind space +jump
+bind left.shift +sneak
+bind left.control +sprint
+bind mouse1 +attack
+bind mouse2 +use
+bind mouse3 pickItem
+bind mouse5 -freeCursor
