@@ -1,75 +1,35 @@
-runAlias unloadCFGAll
-runAlias +freeCursor
-runAlias wait\10 esc
+runAlias unloadCFGAll +freeCursor wait\10 esc
 
 ## do not define NOP_792 (NOP placeholder to escape loops)
+
 ## basic
+# guarded by pressing
 alias jump_once +jump wait\1 -jump
+# consume click_count
 alias drop_single +drop -drop
 alias tap_use +use -use
 
-## auto loops (loops MUST contain a wait -> StackOverflow)
-alias +auto_jump +silent alias\auto_jump_iter;jump_once;builtinRunAlias\auto_jump_iter -silent builtinRunAlias\auto_jump_iter
-alias -auto_jump +silent alias\auto_jump_iter;NOP_792 -silent
-alias +auto_tap_use +silent alias\auto_tap_use_iter;tap_use;wait\1;builtinRunAlias\auto_tap_use_iter -silent builtinRunAlias\auto_tap_use_iter
-alias -auto_tap_use +silent alias\auto_tap_use_iter;NOP_792 -silent
-alias +auto_tower var\lastPitch\pitch setPitch\90 +auto_jump +auto_tap_use
-alias -auto_tower -auto_tap_use -auto_jump setPitch\lastPitch
-alias +auto_attack_sword +silent alias\auto_attack_sword_iter;+attack;wait\1;-attack;wait\13;builtinRunAlias\auto_attack_sword_iter -silent builtinRunAlias\auto_attack_sword_iter
-alias -auto_attack_sword +silent alias\auto_attack_sword_iter;NOP_792 -silent
+## loops (MUST contain a wait\n whose n > 0 -> StackOverflow)
+alias +loop_tap_use +silent alias\loop_tap_use_iter;tap_use;wait\1;builtinRunAlias\loop_tap_use_iter -silent builtinRunAlias\loop_tap_use_iter
+alias -loop_tap_use +silent alias\loop_tap_use_iter;NOP_792 -silent
+alias +loop_tower var\lastPitch\pitch setPitch\90 +jump +loop_tap_use
+alias -loop_tower -loop_tap_use -jump setPitch\lastPitch
+alias +loop_attack_sword +silent alias\loop_attack_sword_iter;+attack;wait\1;-attack;wait\13;builtinRunAlias\loop_attack_sword_iter -silent builtinRunAlias\loop_attack_sword_iter
+alias -loop_attack_sword +silent alias\loop_attack_sword_iter;NOP_792 -silent
 
-# `+auto_drop wait\N -auto_drop` drops N+1 items
-alias +auto_drop +silent alias\auto_drop_iter;drop_single;wait\1;builtinRunAlias\auto_drop_iter -silent builtinRunAlias\auto_drop_iter
-alias -auto_drop +silent alias\auto_drop_iter;NOP_792 -silent
+# `+loop_drop wait\N -loop_drop` drops N+1 items
+alias +loop_drop +silent alias\loop_drop_iter;drop_single;wait\1;builtinRunAlias\loop_drop_iter -silent builtinRunAlias\loop_drop_iter
+alias -loop_drop +silent alias\loop_drop_iter;NOP_792 -silent
 
 ## movement
-# `+hike wait\N -hike`: walk N ticks auto-jumping 1-high steps
-alias +hike +auto_jump +forward
-alias -hike -forward -auto_jump
-# `+digdown wait\N -digdown`: mine straight down
-alias +digdown var\dpitch\pitch setPitch\90 +attack
-alias -digdown -attack setPitch\dpitch
+# `+hop wait\N -hop`: walk N ticks auto-jumping 1-high steps
+alias +hop +jump +forward +sprint
+alias -hop -jump -forward -sprint
 
-## 1x2 tunnel mining, ~1 block/cycle, keep yaw axis-aligned.
-# first-break ticks (26.2): stone pick: stone 15, deepslate 25; wooden 24;
-# iron pick: stone 9, iron ore 10; shovel: gravel 10; axe: log 17. mt = first-break + slack.
-var mt 17
-alias move1 setPitch\0 +attack wait\mt setPitch\70 wait\mt -attack setPitch\0 +forward wait\5 -forward
-alias +mine1 +silent alias\mine1_iter;setPitch\0;+attack;wait\mt;setPitch\70;wait\mt;-attack;setPitch\0;+forward;wait\5;-forward;builtinRunAlias\mine1_iter -silent builtinRunAlias\mine1_iter
-alias -mine1 +silent alias\mine1_iter;NOP_792 -silent -attack -forward
-
-## bridging. yaw = OPPOSITE of travel (face the structure). AIM CONST pitch 81.5.
-# Sneak-clamp at an edge settles at edge+0.298 (the "lean"); only from there does
-# pitch 81.5 hit the last block's side face. The lean's last ~0.35 is SLOW (~10t):
-# approach waits include it. START all loops within ~1 block of the edge (the
-# loop-continuation position); the first cycle from deep on the platform needs more.
-# +bridge: flat, ~20t/block (in-loop). Per block: sneak-back 16t to the lean, tap_use.
-# STRESSED: 7-block void crossing + 20+ flat taps inside stair cycles, all clean.
-alias bridge_once +back wait\16 -back tap_use wait\4
-alias +bridge var\bpitch\pitch setPitch\81.5 +sneak +silent alias\bridge_iter;+back;wait\16;-back;tap_use;wait\4;builtinRunAlias\bridge_iter -silent builtinRunAlias\bridge_iter
-alias -bridge +silent alias\bridge_iter;NOP_792 -silent -back setPitch\bpitch
-
-# +stair: ascending stair-bridge, ~59t/step (+1z +1y, exactly 2 blocks/step). Traversable both ways.
-# STRESSED: 25-step build (26t approach: 15/15 clean, exactly 2.0 blocks/step; 20t: 5/5 clean;
-# 18t+6t walk-on: creates riser-stacks -> stay >=20t). Full 25-step down+up traversal: zero falls
-# (descend with +hike: plain +forward stalls on any 1-high irregularity).
-alias stair_once +back wait\26 -back wait\2 setPitch\81.5 tap_use wait\3 tap_use wait\4 +back wait\8 -back setPitch\90 +jump wait\5 tap_use wait\7 -jump
-alias +stair var\spitch\pitch +sneak +silent alias\stair_iter;+back;wait\26;-back;wait\2;setPitch\81.5;tap_use;wait\3;tap_use;wait\4;+back;wait\8;-back;setPitch\90;+jump;wait\5;tap_use;wait\7;-jump;builtinRunAlias\stair_iter -silent builtinRunAlias\stair_iter
-alias -stair +silent alias\stair_iter;NOP_792 -silent -back -jump setPitch\spitch
-
-# chimney_once: through a ceiling; pick in hand; var\tb = tower-block slot
-var tb 7
-alias chimney_once var\lastSlot\hotbarSlot setPitch\-65 +attack wait\mt -attack setPitch\0 +forward wait\3 -forward slot\tb +auto_tower wait\40 -auto_tower slot\lastSlot
-
-## split: `var\src\c<N> [var\cnt\<D>] split` (peels 1, or cnt+1).
-## AFTER: getState -> peeled pile in smallest EMPTY player slot -> move manually.
-## src must be an INPUTABLE container slot (never result c01); container screen open;
-## flat ground; +freeCursor; NO partial same-type stacks in player inv. cnt < stack count.
+## `var\src\c<N> [var\cnt\<D>] split` (peels 1, or cnt+1).
+## RESULT: peeled pile in smallest EMPTY inventory slot -> move manually.
+## REQUIREMENTS: src must be an **INPUTABLE** container slot; container screen open; on_ground; not on edge;
+##               +freeCursor; NO partial same-type stacks in inventory slots; cnt < stack count.
+## TIMING: 42 [+ cnt]
 var cnt 0
-alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +auto_drop wait\cnt -auto_drop var\cnt\0 wait\2 setPitch\lastPitch swapSlot\14\src wait\38
-
-## tick rates (cheat/specially-allowed hosts only)
-alias t1 sendCommand\"tick rate 1"
-alias t20 sendCommand\"tick rate 20"
-alias tfreeze sendCommand\"tick freeze"
-alias tunfreeze sendCommand\"tick unfreeze"
+alias split var\lastPitch\pitch setPitch\90 swapSlot\src\14 wait\2 +loop_drop wait\cnt -loop_drop var\cnt\0 wait\2 setPitch\lastPitch swapSlot\14\src wait\38
