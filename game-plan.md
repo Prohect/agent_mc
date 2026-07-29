@@ -12,7 +12,7 @@ Goal: beat the Ender Dragon.
 
 - **Ruined portal**: dark obsidian/gold structure across the water, roughly NW of the first oak (`x≈85, z≈15`?) — seen at `x≈96, z≈31` facing west. Revisit for obsidian/gold/flint-and-steel.
 
-## Lessons learned (IMPORTANT — read before playing)
+## Lessons learned
 
 ### Swimming / water
 - **You sink between tool calls** (inter-call latency). Never release `+jump` mid-crossing; do the whole crossing in ONE chain, or keep `+jump` held across calls.
