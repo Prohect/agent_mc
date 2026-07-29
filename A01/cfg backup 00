@@ -1,4 +1,5 @@
-runAlias unloadCFGAll +freeCursor wait\10 esc
+runAlias unloadCFGAll +freeCursor
+runAlias wait\10 esc
 
 ## NOP_792 (NOP placeholder to escape loops)
 
