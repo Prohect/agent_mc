@@ -6,4 +6,4 @@ open the pause screen, optionally update cfg(always loaded, keep it general, mig
 
 ## reference
 
-- [game-plan.md](game-plan.md) — session state (night, 0 wood, at a lake), landmarks (ruined portal, dark forest), hard-won lessons (swimming, wood-punching, collecting drops), and the resume plan to beat the game.
+- [game-plan.md](game-plan.md) — session state (≈day 6 thunderstorm, at crafting table (67,−67), no wood/wool/food, saturation 17), landmarks (ledge-oak, sheep-herd hills, gorge, cave mouths, ruined portal), hard-won lessons (Latency Law, pitch/dig/cap method, melee sweep + pit-trap protocol, floor-radar d=1.62/sinθ, hitbox ±0.3 frac signs: fall window [0.3,0.7], wall pins 0.70/0.30), and the resume plan (wood → charcoal/torches → food → portal → wool/bed → iron → nether).
