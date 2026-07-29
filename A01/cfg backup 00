@@ -1,6 +1,6 @@
 runAlias unloadCFGAll +freeCursor wait\10 esc
 
-## do not define NOP_792 (NOP placeholder to escape loops)
+## NOP_792 (NOP placeholder to escape loops)
 
 ## basic
 # guarded by pressing
