@@ -1,35 +1,35 @@
 # Game Plan — beat the game 7
 
-## Current state (session end)
-- Paused at (-180.4, 81, 9.4), overworld, dawn of ~day 2, health 20, hunger 20.
-- Hotbar: oak sapling, wooden axe (38/59), stone pickaxe (80/131), dirt ~30, cobblestone 6, furnace, wheat seeds, stone axe (101/131), stone sword (131/131).
-- Inventory: 2 crafting tables, 8 sticks, 8+4 oak planks, 4 birch planks, 3 birch wood, 2 pumpkins, leaf litter, oak log(s) may be gone (crafted).
-- Standing at forest edge on a hill; open plains with sheep/pigs visible to yaw ~200 (south-west-ish), ~10m ahead.
+## Current state (session end — game closed)
+- Furnace screen OPEN at (-45.7, 6, 23.7), underground mine, y6. Day ~6, health 20, hunger 20.
+- **Furnace active**: 1 iron ingot ready in output (c3), 1 raw iron still smelting (c1), 4 sticks fuel remaining (c2). 3 sticks unused inventory 20 is empty, plus 2 sticks in slot 20? (now gone).
+- **Hotbar**: sapling, wooden axe(20), stone pickaxe(48), dirt 36, cobble 56, furnace(placed→empty 6), wheat seeds 2, torch 2, stone sword(119).
+- **Inventory highlights**: cobble 64(+18), diorite 18, cinnabar 23, andesite 14, granite 12, lapis 14, **raw iron 0 (smelting)**, raw copper 5, leaf litter 7, pumpkin 2, crafting table 1(+1 placed underground), stone axe(101), 2 stone pickaxes(4,9), stone hoe(131), 1 iron ingot(!), 0+2 sticks.
+- 2nd iron ingot finishing in ~220 ticks from now.
+- **Crafting table placed** 3 blocks behind at (-45, 6, 23.3). **Furnace placed** next to it.
 
-## What happened this session
-- Started at spawn (69, -61) during night thunderstorm with basic kit; rain stopped at dawn.
-- Found **ruined portal in the water at ~(52, -20)** — lava + gold blocks visible, NOT yet looted (chest likely). Marked as key landmark.
-- Nearly drowned repeatedly in a **magma bubble column near (33, -3, y56)** — +jump could not overcome the pull; escaped by pure +forward horizontal swimming. LESSON: in bubble columns, swim sideways out, don't fight upward.
-- Looted **pumpkins** (5-6 mined) on the hills around (-35, -24).
-- Fell into a ravine at ~(-80, 0) with **exposed coal ore** on walls (unmined). Escaped via dirt-pillar + dig-step cycles.
-- Reached forest at night (~(-170, -15)), chopped 1 birch + 1 oak → 3 oak logs, 1 stripped oak log, ~5 birch logs.
-- Crafted: 2 crafting tables, 8 sticks, 12 oak planks, 4 birch planks, 3 birch wood (accidental "wood" craft — see lesson).
-- Morning of day 2: heading back toward plains to hunt pigs/cows/sheep for food & wool.
+## What happened this session (summary of the long run)
+- **Died 3 times** — all drowning in magma-column lake near (28-42, y56-59). keepInventory on → items preserved.
+- **Portal at (52,-20)** confirmed but unreachable via west/south water (lake full of bubble columns). North land approach untested.
+- **Hunting was a failure** — chased pigs/sheep/cows for 2 game-days (day 2–5), never landed a kill, due to poor aiming via screenshots + API lag. Animals fled faster than reaction time.
+- **Torches crafted** (8, smelted birch wood → charcoal → torches). Placed 3 lighting breadcrumbs.
+- **Pillar-tower** + **dig-step climbing** used extensively to escape ravines/hills.
+- **Horizontal mining started**: from surface nook at (-18,42,24) dug straight down to y6, then meandered toward cave sounds. Found **1 iron vein** (2 raw iron, now smelting), **copper x5**, **lapis x14**, **cinnabar** (decorative), **diorite/andesite/granite**.
+- **Cave sounds** nearby (splashing, sulfur cube bounces, bats, eerie noise, lava pops) — an open water cave at ~15m to the south, with lava pool(s).
 
-## Immediate next steps
-1. Hunt sheep (need 3 wool for bed) + pigs/cows (food). Sheep seen at plains edge, pigs at (-76, -37) valley.
-2. Place furnace, smelt birch wood → charcoal (planks as fuel) → craft torches.
-3. Loot ruined portal at (52, -20) — gold blocks + possible chest (flint&steel/obsidian chance).
-4. Mine coal in ravine at (-80, 0) for more torches.
-5. Bed before next night (sleep through thunderstorms).
+## Hard-won lessons (standalone or additions)
+- **Never enter water >1 block deep**: this world has massive magma fields in lakes and flooded caves; every deep-water excursion ended in drowning.
+- **Furance placement failure**: at pitch 45° targeting a block <1m away (pitch hits block I'd intersect) — backup, aim farther (>1.5m), or place on a vertical face at pitch ~0-10°.
+- **Entity-blocked movement**: invisible wandering-trader/llama in a 1-wide trench can block all movement — dig through ceiling or flank differently.
+- **Gravel freezes movement**: standing in a gravel pocket undergoing successive collapses pins you in place — mine downward or tower out.
+- **swapSlot\6\N** works off-screen (6=hotbar), **swapSlot\N\N where N≥10 needs inventory/container screen open**? Not fully confirmed — earlier off-screen swapSlot\16\6 succeeded but later swapSlot\17\6 failed — may depend on screen state at time of call.
+- **Bubble-column physics**: tried all combos; only horizontal swim away from the column center escapes. +jump is useless; sneaking makes it worse.
+- **Cinnabar is non-placeable** (or difficult) — furnace wouldn't place on cinnabar floor blocks. Granite and stone work.
 
-## Hard-won lessons (new this session)
-- **Movement math**: forward vector = (-sin(yaw), +cos(yaw)) in (x,z). Verified repeatedly.
-- **Bubble columns**: +jump loses to magma pull; escape horizontally (+forward/+sprint only).
-- **Water exits**: +forward++jump at a shore works only if the bottom slopes up; against a 2-deep wall it fails — pillar or dig instead.
-- **loop_tower fails under a ceiling** (blocks can't place, wastes nothing but time) and while standing on pillar edge — check sky first (screenshot) before towering.
-- **Dig-step climbing**: attack eye-level block, then +hop — reliable 2-high wall climb; ~+1y per cycle. Pickaxe for stone walls.
-- **applyRecipe matches substrings loosely**: "birch planks" matched "Birch Wood" (4 logs→3 wood, wasteful). Use full ids: `minecraft:birch_planks`.
-- **Container slots are c1-based, not c0** — result slot of 2x2 inventory grid is `c1`, grid is c2-c5. Grab result via `swapSlot\c1\N`.
-- **Recipe grab**: after applyRecipe, result stack goes to cursor; must swapSlot it into a numbered slot or it lingers on cursor ("stack remains on cursor" warnings).
-- Ravines/ditches in hilly flower forest are everywhere when sprint-hopping — "Something trips/Player hurts" means you fell; check y before continuing.
+## Immediate next steps on resume
+1. Collect 2nd iron ingot from furnace (swapSlot\c3\23).
+2. Open crafting table, craft **shears** (2 iron ingots: applyRecipe\minecraft:shears, grab).
+3. Return to surface (tower up through the nook hole at (-18,42,24)).
+4. Find sheep on the plains (easier with daylight), right-click with shears for 1-3 wool (no aiming needed!).
+5. Craft a **bed** (3 wool + 3 planks → use remaining oak planks if any, or craft more from birch wood inventory).
+6. After bed: set spawn, sleep through nights, then: mine more iron for armor + shield + bucket; portal approach from north land route; diamonds at y-59.
