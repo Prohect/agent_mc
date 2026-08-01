@@ -8,7 +8,6 @@ Sorted by severity: how much it blocks progress vs how avoidable it is.
 
 ### 1. Crosshair placement failures (block/tool placement silently rejected)
 - **distance < ~1.5m**: placement cell intersects player hitbox → rejection with zero feedback. Aim >1.5m away, backup before placing.
-- **cinnabar**: appears solid but does **not** accept block placements. Only placed blocks (granite, andesite, stone, dirt, cobble) work.
 - **GUI-entity overlap**: crosshair on crafting table / furnace / chest → `+use` opens GUI instead of placing held block. Turn away, place elsewhere, then walk back.
 - **water**: blocks can't be placed ON water; place against a solid block face beside water.
 - **furnace-on-ground recipe**: pitch 45° at a stone/granite floor 1.8-2.5m ahead, `+use wait\5 -use`. Needs retry if distance drifts <1.5m (character slides forward).
@@ -70,7 +69,7 @@ Sorted by severity: how much it blocks progress vs how avoidable it is.
 - Even at 8 tps, each API cycle (screenshot + decision + alias) costs 200-400 game ticks.
 - A game day lasts ~12,000 ticks → ~30-60 tool calls per day. "Simple" tasks can consume an entire day.
 - **Strategy**: batch horizontal moves in long `+hop wait\60 -hop` chains. Interleave movement with digging/placing in single calls where possible. Screenshots should be taken only when a decision point is reached.
-- **Dynamic tick**: travel at 20 tps (fast real-time), switch to 8 tps for combat/precise building, 5 tps for critical moments.
+- **Dynamic tick**: travel at 20 tps (fast real-time), switch to 8 tps for combat/precise building, or lower tps for critical moments.
 
 ### 10. loop_tower ceiling failures
 - Tower places dirt under you while jumping. Under a solid ceiling, blocks can't place → loop runs silently doing nothing.
@@ -87,7 +86,7 @@ Sorted by severity: how much it blocks progress vs how avoidable it is.
 ## 🟢 Solved — patterns that now work
 
 ### Animal hunting replacement: shears
-- 2 iron ingots → shears → right-click sheep = 1-3 wool. No combat aiming required.
+- 2 iron ingots → shears → right-click sheep = 1-3 wool. No combat chasing aiming required, aiming required though.
 - 3 wool + 3 planks → bed → set spawn + skip nights.
 
 ### Dig-stair climbing
